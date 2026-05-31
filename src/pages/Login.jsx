@@ -31,8 +31,8 @@ export default function Login() {
       <div className="login-card">
         <div className="login-brand">
           <span className="brand-logo"><Leaf size={36} /></span>
-          <h1>HydroFarm</h1>
-          <p className="muted">Hydroponic Farm Management System</p>
+          <h1>SmartFarm RUPP</h1>
+          <p className="muted">Hydroponic Farm Management System — RUPP</p>
         </div>
         <form onSubmit={submit} className="form">
           <label className="field">

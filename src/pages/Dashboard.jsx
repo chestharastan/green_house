@@ -28,12 +28,12 @@ export default function Dashboard() {
       <PageHeader title="Dashboard" subtitle={`Daily overview — ${TODAY}`} />
 
       <div className="stat-grid">
-        <StatCard label="Greenhouses" value={greenhouses.length} accent="#16a34a" />
-        <StatCard label="Active Crop Batches" value={activeBatches.length} accent="#0ea5e9" />
-        <StatCard label="Today's Tasks" value={todayTasks.length} accent="#f59e0b" />
-        <StatCard label="Low Stock Items" value={lowStock.length} accent="#ef4444" />
-        <StatCard label="Upcoming Harvests" value={upcomingHarvests.length} accent="#a855f7" />
-        <StatCard label="Workers" value={workers.length} accent="#6366f1" />
+        <StatCard label="Greenhouses" value={greenhouses.length} />
+        <StatCard label="Active Crop Batches" value={activeBatches.length} />
+        <StatCard label="Today's Tasks" value={todayTasks.length} />
+        <StatCard label="Low Stock Items" value={lowStock.length} />
+        <StatCard label="Upcoming Harvests" value={upcomingHarvests.length} />
+        <StatCard label="Workers" value={workers.length} />
       </div>
 
       <div className="dash-grid">
