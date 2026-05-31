@@ -19,7 +19,9 @@ const PAGE_SIZE = 5
 
 type Tab = "types" | "batches" | "harvest"
 
-const stageVariant: Record<string, string> = {
+type BadgeVariant = "default" | "secondary" | "destructive" | "warning" | "info" | "outline"
+
+const stageVariant: Record<string, BadgeVariant> = {
   Seed: "secondary", Germination: "info", Transplanting: "warning",
   Growing: "default", Harvest: "destructive", Completed: "outline",
 }
@@ -35,7 +37,7 @@ const stageDotColor: Record<string, string> = {
 
 function StagePipeline({ currentStage }: { currentStage: string }) {
   const stages = Array.from(CROP_STAGES)
-  const currentIdx = stages.indexOf(currentStage)
+  const currentIdx = stages.indexOf(currentStage as typeof CROP_STAGES[number])
   return (
     <div className="flex items-center gap-0.5">
       {stages.map((stage, i) => {

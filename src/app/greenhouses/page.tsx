@@ -26,12 +26,14 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 type Tab = "greenhouses" | "beds" | "performance"
 
-const stageVariant: Record<string, string> = {
+type BadgeVariant = "default" | "secondary" | "destructive" | "warning" | "info" | "outline"
+
+const stageVariant: Record<string, BadgeVariant> = {
   Seed: "secondary", Germination: "info", Transplanting: "warning",
   Growing: "default", Harvest: "destructive", Completed: "outline",
 }
 
-const bedStatusVariant: Record<string, string> = { Active: "default", Idle: "secondary", Maintenance: "warning" }
+const bedStatusVariant: Record<string, BadgeVariant> = { Active: "default", Idle: "secondary", Maintenance: "warning" }
 
 const glass = "bg-white/75 backdrop-blur-2xl border border-black/[0.06] shadow-[0_1px_2px_rgba(0,0,0,0.03),0_8px_24px_rgba(0,0,0,0.06)]"
 const innerCell = "bg-black/[0.03] rounded-[10px]"

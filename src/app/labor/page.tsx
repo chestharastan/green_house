@@ -18,10 +18,12 @@ const PAGE_SIZE = 5
 
 type Tab = "tasks" | "hours"
 
-const statusVariant: Record<Task["status"], string> = {
+type BadgeVariant = "default" | "secondary" | "destructive" | "warning" | "info" | "outline"
+
+const statusVariant: Record<Task["status"], BadgeVariant> = {
   Pending: "secondary", InProgress: "info", Done: "default", Cancelled: "outline",
 }
-const priorityVariant: Record<Task["priority"], string> = {
+const priorityVariant: Record<Task["priority"], BadgeVariant> = {
   Low: "secondary", Medium: "info", High: "warning", Urgent: "destructive",
 }
 
