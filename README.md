@@ -1,57 +1,36 @@
-# HydroFarm — Hydroponic Farm Management System (MVP Frontend)
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A React frontend for digitizing greenhouse daily operations: crop tracking,
-worker tasks, inventory usage, and manual sensor records. Built to the ERD in
-`Copy of CBM&ERD_Greenhouse.drawio.html`.
+## Getting Started
 
-> **Mock-data mode:** all data lives in memory. Records you add appear
-> immediately for the current session and **reset on page refresh** (shown
-> once). No backend or database is required to run the frontend.
-
-## Run it
+First, run the development server:
 
 ```bash
-npm install
-npm run dev       # http://localhost:5173
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Other commands: `npm run build` (production bundle), `npm run preview`.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Demo accounts (role-based access)
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-| Username  | Password  | Role         | Can access                                            |
-|-----------|-----------|--------------|-------------------------------------------------------|
-| `admin`   | `admin`   | Admin        | Everything                                            |
-| `manager` | `manager` | Farm Manager | Everything                                            |
-| `worker`  | `worker`  | Worker       | Dashboard, My Tasks, Work Hours, Crop Stages, Sensors |
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-On the login screen you can click a role button to sign in instantly.
+## Learn More
 
-## Features
+To learn more about Next.js, take a look at the following resources:
 
-1. Login + JWT-style auth + role-based route guards
-2. Dashboard (greenhouses, active batches, today's tasks, low stock, upcoming harvests, latest sensors)
-3. Greenhouse CRUD (list + add)
-4. Crop batch CRUD (list + add)
-5. Crop stage tracking (germination → transplanting → growing → harvest; logging advances the batch)
-6. Worker profile CRUD
-7. Worker task assignment (workers see only their own tasks)
-8. Work hour tracking (with estimated pay)
-9. Inventory CRUD
-10. Stock in / stock out (auto-adjusts item quantity)
-11. Manual sensor data entry
-12. Basic reports (production, labor, inventory valuation)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Where things are
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-```
-src/
-  context/   AuthContext (login/roles), DataContext (in-memory store + add actions)
-  data/      mockData.js  — seed data mirroring the ERD tables
-  components/ Layout, ProtectedRoute, ui.jsx (Table, FormModal, StatCard, Badge)
-  pages/     one file per feature screen
-```
+## Deploy on Vercel
 
-See `DOCS.md` for full deliverables: system requirements, ERD, database schema,
-API endpoints, frontend pages, backend folder structure, development plan, and
-sample backend (Django REST Framework) + frontend code.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
