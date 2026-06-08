@@ -9,7 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Textarea } from "@/components/ui/textarea"
 import { mockUtilityRecords, mockUsers, type UtilityRecord } from "@/lib/mock-data"
-import { Plus, Droplets, Zap, FlaskConical } from "lucide-react"
+import { Plus, Droplets, Zap, FlaskConical, Hash } from "lucide-react"
+import { StatCard } from "@/components/ui/stat-card"
 import {
   Chart as ChartJS, CategoryScale, LinearScale, BarElement, LineElement,
   PointElement, Title, Tooltip, Legend,
@@ -63,55 +64,11 @@ export default function UtilitiesPage() {
   return (
     <div className="space-y-6">
       {/* Summary stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card>
-          <CardContent className="pt-5 pb-5">
-            <div className="flex items-center gap-3">
-              <div className="bg-blue-50 p-2.5 rounded-lg"><Droplets size={20} className="text-blue-600" /></div>
-              <div>
-                <p className="text-xs text-gray-500">Total Water</p>
-                <p className="text-xl font-bold text-gray-900">{totalWater.toLocaleString()} L</p>
-                <p className="text-xs text-gray-400">Avg {avgWater} L/day</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="pt-5 pb-5">
-            <div className="flex items-center gap-3">
-              <div className="bg-yellow-50 p-2.5 rounded-lg"><Zap size={20} className="text-yellow-600" /></div>
-              <div>
-                <p className="text-xs text-gray-500">Total Electricity</p>
-                <p className="text-xl font-bold text-gray-900">{totalElec.toFixed(1)} kWh</p>
-                <p className="text-xs text-gray-400">Avg {(totalElec / records.length).toFixed(1)} kWh/day</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="pt-5 pb-5">
-            <div className="flex items-center gap-3">
-              <div className="bg-green-50 p-2.5 rounded-lg"><FlaskConical size={20} className="text-green-600" /></div>
-              <div>
-                <p className="text-xs text-gray-500">Total Nutrients</p>
-                <p className="text-xl font-bold text-gray-900">{totalNutrient.toFixed(1)} L</p>
-                <p className="text-xs text-gray-400">Avg {(totalNutrient / records.length).toFixed(1)} L/day</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="pt-5 pb-5">
-            <div className="flex items-center gap-3">
-              <div className="bg-gray-100 p-2.5 rounded-lg"><span className="text-gray-600 font-bold text-sm">#</span></div>
-              <div>
-                <p className="text-xs text-gray-500">Records</p>
-                <p className="text-xl font-bold text-gray-900">{records.length}</p>
-                <p className="text-xs text-gray-400">days tracked</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <StatCard icon={<Droplets size={16} className="text-blue-600" />} iconBg="rgba(37,99,235,0.12)" label="Total Water" value={`${totalWater.toLocaleString()} L`} sub={`Avg ${avgWater} L/day`} />
+        <StatCard icon={<Zap size={16} className="text-yellow-600" />} iconBg="rgba(234,179,8,0.14)" label="Total Electricity" value={`${totalElec.toFixed(1)} kWh`} sub={`Avg ${(totalElec / records.length).toFixed(1)} kWh/day`} />
+        <StatCard icon={<FlaskConical size={16} className="text-green-600" />} iconBg="rgba(22,163,74,0.12)" label="Total Nutrients" value={`${totalNutrient.toFixed(1)} L`} sub={`Avg ${(totalNutrient / records.length).toFixed(1)} L/day`} />
+        <StatCard icon={<Hash size={16} className="text-slate-500" />} iconBg="rgba(100,116,139,0.12)" label="Records" value={records.length} sub="days tracked" />
       </div>
 
       {/* Chart */}

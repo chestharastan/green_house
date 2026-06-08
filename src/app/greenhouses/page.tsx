@@ -143,18 +143,18 @@ export default function GreenhousesPage() {
     <div className="space-y-5" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif', letterSpacing: '-0.01em' }}>
 
       {/* Tab bar */}
-      <div className="flex gap-0.5 bg-black/[0.05] backdrop-blur-xl p-1 rounded-[14px] w-fit border border-black/[0.04]">
+      <div className="flex gap-0.5 bg-black/[0.05] backdrop-blur-xl p-1 rounded-[14px] w-full sm:w-fit border border-black/[0.04]">
         {([["greenhouses", "Greenhouses", Building2], ["beds", "Water Beds", Rows3], ["performance", "Performance", BarChart2]] as const).map(([key, label, Icon]) => (
           <button
             key={key}
             onClick={() => setTab(key)}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-[10px] text-[13px] font-medium tracking-[-0.01em] transition-all ${
+            className={`flex flex-1 sm:flex-initial items-center justify-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-[10px] text-[13px] font-medium tracking-[-0.01em] whitespace-nowrap transition-all ${
               tab === key
                 ? "bg-white shadow-[0_1px_3px_rgba(0,0,0,0.10),0_1px_1px_rgba(0,0,0,0.06)] text-slate-800"
                 : "text-slate-500 hover:text-slate-700"
             }`}
           >
-            <Icon size={13} />{label}
+            <Icon size={13} className="shrink-0" />{label}
           </button>
         ))}
       </div>
@@ -324,7 +324,7 @@ export default function GreenhousesPage() {
           </div>
 
           <div className={`${glass} rounded-[18px] overflow-hidden`}>
-            <Table>
+            <Table className="min-w-[680px]">
               <TableHeader>
                 <TableRow className="border-b border-black/[0.05]">
                   {["Bed Code", "Greenhouse", "Size", "Status", "Current Crop", "Stage", ""].map(h => (
@@ -446,7 +446,7 @@ export default function GreenhousesPage() {
             <div className="px-5 py-4 border-b border-black/[0.05]">
               <p className="text-[15px] font-semibold text-slate-800 tracking-[-0.02em]">Batch Performance Summary</p>
             </div>
-            <Table>
+            <Table className="min-w-[680px]">
               <TableHeader>
                 <TableRow className="border-b border-black/[0.05]">
                   {["Batch", "Crop", "Bed", "Seedlings", "Stage", "Yield (kg)", "kg / plant"].map(h => (

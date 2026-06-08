@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: #f0f5f1;
+    --background: #f1f4f8;
     --foreground: #0a1628;
   }
 
@@ -20,7 +20,7 @@
 
 @layer components {
   .app-bg {
-    background: linear-gradient(160deg, #e8f5ec 0%, #f0f5fa 45%, #ecf2f9 75%, #eaf4ef 100%);
+    background: linear-gradient(160deg, #eef2f8 0%, #f0f5fa 45%, #ecf2f9 75%, #eef1f6 100%);
   }
 
   .glass-card {

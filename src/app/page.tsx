@@ -1,6 +1,7 @@
 "use client"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { StatCard } from "@/components/ui/stat-card"
 import { Building2, Sprout, Users, TrendingUp, AlertTriangle, Activity, Package } from "lucide-react"
 import {
   mockGreenhouses, mockCropBatches, mockHarvestRecords, mockInventory,
@@ -176,29 +177,5 @@ export default function DashboardPage() {
         </Card>
       )}
     </div>
-  )
-}
-
-function StatCard({ icon, iconBg, label, value, sub }: {
-  icon: React.ReactNode; iconBg: string; label: string; value: React.ReactNode; sub: string
-}) {
-  return (
-    <Card>
-      <CardContent className="py-4 px-5">
-        <div className="flex items-center gap-3">
-          <div
-            className="shrink-0 p-[9px] rounded-[10px]"
-            style={{ background: iconBg }}
-          >
-            {icon}
-          </div>
-          <div>
-            <p className="text-[11px] text-slate-400 font-medium tracking-[-0.01em]">{label}</p>
-            <p className="text-[20px] font-bold text-slate-900 leading-tight mt-0.5 tracking-[-0.03em]">{value}</p>
-            <p className="text-[11px] text-slate-400 mt-0.5 tracking-[-0.01em]">{sub}</p>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
   )
 }

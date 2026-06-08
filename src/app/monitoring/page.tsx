@@ -14,6 +14,7 @@ import type { BedMonitoringRecord, ReadingStatus } from "@/types/monitoring"
 import { Plus, AlertTriangle } from "lucide-react"
 import { PH_RANGE, EC_RANGE, TEMP_RANGE } from "@/lib/constants"
 import { Pagination } from "@/components/ui/pagination"
+import { WeatherPanel } from "@/components/monitoring/weather-panel"
 
 const PAGE_SIZE = 5
 
@@ -73,6 +74,9 @@ export default function MonitoringPage() {
 
   return (
     <div className="space-y-6">
+      {/* Live outside weather (Open-Meteo) */}
+      <WeatherPanel />
+
       {/* Bed status overview */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         {latestByBed.map(({ bed, latest }) => {

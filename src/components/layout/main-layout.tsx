@@ -27,9 +27,9 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
         className="fixed inset-0 pointer-events-none z-0"
         style={{
           background: `
-            radial-gradient(ellipse 55% 45% at 12% 8%, rgba(74, 222, 128, 0.2) 0%, transparent 60%),
+            radial-gradient(ellipse 55% 45% at 12% 8%, rgba(129, 161, 217, 0.18) 0%, transparent 60%),
             radial-gradient(ellipse 45% 55% at 88% 88%, rgba(99, 179, 237, 0.16) 0%, transparent 60%),
-            radial-gradient(ellipse 38% 38% at 62% 28%, rgba(167, 243, 208, 0.12) 0%, transparent 55%)
+            radial-gradient(ellipse 38% 38% at 62% 28%, rgba(186, 200, 224, 0.12) 0%, transparent 55%)
           `,
         }}
       />

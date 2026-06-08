@@ -1,6 +1,7 @@
 "use client"
 import { Fragment, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
+import { StatCard } from "@/components/ui/stat-card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -11,7 +12,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Textarea } from "@/components/ui/textarea"
 import { mockCropTypes, mockCropBatches, mockHarvestRecords, mockWaterBeds, mockUsers } from "@/lib/mock-data"
 import type { CropType, CropBatch, HarvestRecord } from "@/types/crop"
-import { Plus, Pencil, ArrowRight, Leaf, ChevronDown, ChevronRight } from "lucide-react"
+import { Plus, Pencil, ArrowRight, Leaf, ChevronDown, ChevronRight, Sprout, CalendarClock } from "lucide-react"
 import { CROP_STAGES } from "@/lib/constants"
 import { Pagination } from "@/components/ui/pagination"
 
@@ -165,25 +166,10 @@ export default function CropsPage() {
   return (
     <div className="space-y-5">
       {/* Stats bar */}
-      <div className="grid grid-cols-3 gap-3">
-        <Card className="border-0 bg-green-50">
-          <CardContent className="pt-4 pb-4">
-            <p className="text-2xl font-bold text-green-700">{activeBatchCount}</p>
-            <p className="text-xs text-green-600 mt-0.5">Active Batches</p>
-          </CardContent>
-        </Card>
-        <Card className="border-0 bg-blue-50">
-          <CardContent className="pt-4 pb-4">
-            <p className="text-2xl font-bold text-blue-700">{totalSeedlings.toLocaleString()}</p>
-            <p className="text-xs text-blue-600 mt-0.5">Total Seedlings</p>
-          </CardContent>
-        </Card>
-        <Card className="border-0 bg-amber-50">
-          <CardContent className="pt-4 pb-4">
-            <p className="text-2xl font-bold text-amber-700">{upcomingHarvests}</p>
-            <p className="text-xs text-amber-600 mt-0.5">Harvests in 7 Days</p>
-          </CardContent>
-        </Card>
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+        <StatCard icon={<Sprout size={16} className="text-green-600" />} iconBg="rgba(22,163,74,0.12)" label="Active Batches" value={activeBatchCount} />
+        <StatCard icon={<Leaf size={16} className="text-blue-600" />} iconBg="rgba(37,99,235,0.12)" label="Total Seedlings" value={totalSeedlings.toLocaleString()} />
+        <StatCard icon={<CalendarClock size={16} className="text-orange-600" />} iconBg="rgba(234,88,12,0.12)" label="Harvests in 7 Days" value={upcomingHarvests} />
       </div>
 
       {/* Tab bar */}

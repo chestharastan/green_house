@@ -11,7 +11,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Textarea } from "@/components/ui/textarea"
 import { mockTasks, mockWorkHours, mockUsers } from "@/lib/mock-data"
 import type { Task, WorkHourRecord } from "@/types/labor"
-import { Plus, Pencil, Clock } from "lucide-react"
+import { Plus, Pencil, Clock, ListChecks, CircleDashed, CheckCircle2 } from "lucide-react"
+import { StatCard } from "@/components/ui/stat-card"
 import { Pagination } from "@/components/ui/pagination"
 
 const PAGE_SIZE = 5
@@ -80,20 +81,11 @@ export default function LaborPage() {
   return (
     <div className="space-y-6">
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {[
-          { label: "Total Tasks", value: tasks.length, color: "text-gray-900" },
-          { label: "Open Tasks", value: openTasks, color: "text-orange-600" },
-          { label: "Completed", value: tasks.filter(t => t.status === "Done").length, color: "text-green-700" },
-          { label: "Hours Logged", value: `${totalHours}h`, color: "text-blue-700" },
-        ].map(s => (
-          <Card key={s.label}>
-            <CardContent className="pt-4 pb-4 text-center">
-              <p className={`text-2xl font-bold ${s.color}`}>{s.value}</p>
-              <p className="text-xs text-gray-500 mt-0.5">{s.label}</p>
-            </CardContent>
-          </Card>
-        ))}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <StatCard icon={<ListChecks size={16} className="text-violet-600" />} iconBg="rgba(124,58,237,0.12)" label="Total Tasks" value={tasks.length} />
+        <StatCard icon={<CircleDashed size={16} className="text-orange-600" />} iconBg="rgba(234,88,12,0.12)" label="Open Tasks" value={openTasks} />
+        <StatCard icon={<CheckCircle2 size={16} className="text-green-600" />} iconBg="rgba(22,163,74,0.12)" label="Completed" value={tasks.filter(t => t.status === "Done").length} />
+        <StatCard icon={<Clock size={16} className="text-blue-600" />} iconBg="rgba(37,99,235,0.12)" label="Hours Logged" value={`${totalHours}h`} />
       </div>
 
       <div className="flex gap-0.5 bg-slate-100 p-1 rounded-xl w-fit">

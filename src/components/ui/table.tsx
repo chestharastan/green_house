@@ -17,10 +17,10 @@ export function TableRow({ className, ...props }: React.HTMLAttributes<HTMLTable
   return <tr className={cn("hover:bg-slate-50/60 transition-colors", className)} {...props} />
 }
 export function TableHead({ className, ...props }: React.ThHTMLAttributes<HTMLTableCellElement>) {
-  return <th className={cn("h-10 px-4 text-left align-middle text-xs font-medium text-slate-400 tracking-wide", className)} {...props} />
+  return <th className={cn("h-10 px-4 text-left align-middle text-xs font-medium text-slate-400 tracking-wide whitespace-nowrap", className)} {...props} />
 }
 export function TableCell({ className, ...props }: React.TdHTMLAttributes<HTMLTableCellElement>) {
-  return <td className={cn("px-4 py-3 align-middle text-slate-700", className)} {...props} />
+  return <td className={cn("px-4 py-3 align-middle text-slate-700 whitespace-nowrap", className)} {...props} />
 }
 export function TableCaption({ className, ...props }: React.HTMLAttributes<HTMLTableCaptionElement>) {
   return <caption className={cn("mt-4 text-xs text-slate-400", className)} {...props} />
